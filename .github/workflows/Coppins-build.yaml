@@ -14,7 +14,7 @@ on:
         type: string
 
 env:
-  DEPLOYMENT_FOLDER: ./copins
+  DEPLOYMENT_FOLDER: ./coppins
 
 jobs:
 # Please do not rename this job
@@ -41,12 +41,10 @@ jobs:
 
       - name: Setup composer
         uses: php-actions/composer@v6
-# uncomment the following lines if you want to add environment variables for this step
-#        env:
-#          MY_ENV_VAR: value-for-my-env-var
-#          MY_SECRET_ENV_VAR: ${{ secrets.MY_SECRET }} # here you can find information how to create secrets: https://docs.github.com/en/actions/security-guides/encrypted-secrets
+        env:
+          DATABASE_URL: "mysql://dbu2221772:!s7t4sCtS76HGmoz363@$@XHcrqj@db5013497325.hosting-data.io:3306/dbs11309905?server"
         with:
-          php_version: '8.0'
+          php_version: '8.1'
           version: '2'
           args: --optimize-autoloader --no-dev
 
@@ -56,7 +54,7 @@ jobs:
         with:
           api-key: ${{ secrets.IONOS_API_KEY }}
           service-host: api-eu.ionos.space
-          project-id: f035ab20-0ac8-464c-816b-0da3bb56565a
+          project-id: 33625eff-8721-4186-b93a-055958dff48c
           branch-id: ${{ inputs.branch-id }}
           version: ${{ github.sha }}
           folder: ${{ env.DEPLOYMENT_FOLDER }}
